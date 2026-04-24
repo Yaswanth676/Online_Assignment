@@ -4,7 +4,6 @@ import './index.css';
 
 const TreeNode = ({ nodeName, childrenObj }) => {
   const childKeys = Object.keys(childrenObj);
-  const API = import.meta.env.VITE_API_URL;
 
   return (
     <li>
@@ -44,7 +43,7 @@ const App = () => {
     }
 
     try {
-      const res = await axios.post(`${API}/bfhl`, { data: parsedData });
+      const res = await axios.post(`https://online-assignment-q270.onrender.com/bfhl`, { data: parsedData });
       setResponse(res.data);
     } catch (err) {
       setError(err.response?.data?.error || "Failed to fetch from API. Is the backend running?");
